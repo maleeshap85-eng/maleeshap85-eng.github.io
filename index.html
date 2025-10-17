@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Warning Systems for Saibai Island</title>
+    <!-- Bootstrap CDN for responsive design -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- AOS for animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+        .hero {
+            background: url('images/image1.png') no-repeat center center/cover;
+            background-attachment: fixed; /* Parallax effect */
+            color: white;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Overlay for readability */
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .bg-light {
+            background-color: #f8f9fa !important;
+        }
+        .table {
+            margin-top: 20px;
+        }
+        img.img-fluid {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        ul li i {
+            color: #007bff;
+            margin-right: 10px;
+        }
+        /* AOS overrides if needed */
+        [data-aos] {
+            transition-duration: 1s;
+        }
+    </style>
+</head>
+<body data-aos-easing="ease-in-out" data-aos-duration="800">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-bolt"></i> Omnipotent Tech Solutions</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#acknowledgement">Acknowledgement</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#exec-summary">Executive Summary</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#background">Background</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#problem">Problem Description</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#scope">Project Scope</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#requirements">Design Requirements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#options">Design Options</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#solution">Chosen Solution</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#prototype">Prototype</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#implementation">Implementation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#costs">Costs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#specs">Technical Specs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sustainability">Sustainability</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#needs">Meets Needs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#recommendations">Recommendations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#references">References</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#declaration">Declaration</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Header with Parallax -->
+    <header class="hero">
+        <div class="hero-content container">
+            <h1 data-aos="fade-down">Early Warning Systems for Saibai Island</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Enhancing Disaster Resilience in the Torres Strait</p>
+        </div>
+    </header>
+
+    <!-- Sections with AOS Animations -->
+    <section id="acknowledgement" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-hands-helping"></i> Acknowledgement of Country</h2>
+            <p>We would like to acknowledge the Gadigal people of the Eora Nation upon whose ancestral lands our City campus now stands. We also acknowledge the traditional owners of Saibai Island, the Koeybuway and Moegibuway peoples, whose land we respectfully learn upon. We pay respect to the Elders past, present, and emerging, acknowledging them as the traditional custodians of knowledge for this land.</p>
+        </div>
+    </section>
+
+    <section id="exec-summary" class="py-5 bg-light" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-file-alt"></i> Executive Summary</h2>
+            <p>Saibai Island, located in the Torres Strait, faces existential threats from climate change, including rising sea levels, frequent flooding, storm surges, and king tides that exceed the island's 2.3-meter seawall. With an average elevation of just one meter above sea level and a population of approximately 340 residents, the community is highly vulnerable to these hazards, which exacerbate erosion, saltwater intrusion, cultural displacement, and disruptions to daily life. Current early warning systems rely on manual processes prone to delays and human error, compounded by unreliable internet and limited infrastructure.</p>
+            <p>Our proposed solution is a hybrid Community News System: a mobile app integrated with radio wave backups, designed to deliver timely, automated alerts while respecting cultural protocols and ensuring accessibility for all residents, including elders. This system aligns with the Sendai Framework for Disaster Risk Reduction, emphasizing risk knowledge, monitoring, dissemination, and preparedness. It incorporates redundancy through multiple channels (app notifications, radio broadcasts, and sirens), offline functionality, and low-power IoT for sustainability.</p>
+            <p>The design meets key criteria: redundancy, ample warning time, cultural appropriateness, reachability, coherence, and reliability. Implementation is phased over 12-18 months, starting in 2026, with an initial cost of $44,000-$70,000, funded through grants from Engineers Without Borders (EWB), Torres Strait Island Regional Council (TSIRC), and NGOs. Long-term maintenance promotes community independence via training and local management.</p>
+            <p>This solution empowers the Saibai community to adapt to climate risks, preserving cultural heritage and enhancing resilience. Broader recommendations include ongoing climate monitoring and integration with regional adaptation plans.</p>
+            <p>(Word count for summary: 350)</p>
+        </div>
+    </section>
+
+    <section id="background" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-info-circle"></i> Background</h2>
+            <p>Saibai Island, part of the Torres Strait Islands in Queensland, Australia, is a low-lying coral cay with a population of around 340 residents, primarily Torres Strait Islanders of the Koeybuway and Moegibuway peoples (Indigenous.gov.au, 2021). Situated just 4 km from Papua New Guinea, the island's remote location and average elevation of one meter above sea level make it exceptionally vulnerable to climate change impacts (Engineers Without Borders, 2025a).</p>
+            <p>Climate projections indicate sea levels in the Torres Strait could rise by 0.5-1 meter by 2100, exacerbating risks from flooding, storm surges, and king tides peaking at 4 meters (Green et al., 2009). Historical events, such as the 2006 king tide that inundated homes and cemeteries, highlight the urgency (Wellauer et al., 2025). These hazards not only threaten physical infrastructure but also cultural sites, food security, and habitability, leading to fears of forced relocation (Babacan et al., 2021).</p>
+            <p>Current practices involve the Community Disaster Management Group (CDMG) and Local Disaster Coordination Centre (LDCC), which rely on email alerts and manual dissemination (Torres Strait Island Regional Council, 2025). However, unreliable telecommunications—limited to 3G/4G with frequent outages—and human dependencies hinder effectiveness (TSRA, 2018). The Sendai Framework for Disaster Risk Reduction (United Nations Office for Disaster Risk Reduction, 2015) provides a global blueprint, emphasizing four elements: risk knowledge, monitoring, dissemination, and preparedness. Our project builds on this to reinforce ICT infrastructure, improving daily livelihoods and disaster response.</p>
+            <p>To better protect and prepare the residents of Saibai Island, this project addresses the remote location and small population by integrating with existing ICT elements like databases, cloud services, and processing power. This not only improves network coverage and speed but also enhances overall community resilience against increasing climate hazards.</p>
+            <img src="images/image2.png" alt="Saibai Island Aerial View" class="img-fluid">
+            <p>(Word count: 450)</p>
+        </div>
+    </section>
+
+    <section id="problem" class="py-5 bg-light" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-exclamation-triangle"></i> Problem Description</h2>
+            <p>Residents of Saibai Island require timely, reliable early warnings due to the island's proneness to severe weather events amplified by climate change. The island's highest point is only 1.7 meters, leaving it at risk from:</p>
+            <ul>
+                <li><i class="fas fa-flood"></i> <strong>Flooding and Erosion</strong>: Damages seawalls and roads, weakening infrastructure and disrupting access (Torres Strait Island Regional Council, 2025).</li>
+                <li><i class="fas fa-water"></i> <strong>Saltwater Intrusion</strong>: Contaminates soil and groundwater, harming gardens and freshwater supplies (Wellauer et al., 2025).</li>
+                <li><i class="fas fa-heart-broken"></i> <strong>Cultural Identity Threats</strong>: Erosion erodes cemeteries and ancestral lands, risking cultural displacement (Tearfund Australia, n.d.).</li>
+                <li><i class="fas fa-home"></i> <strong>Habitability Challenges</strong>: Rising tides make activities like night fishing dangerous and daily life unreliable (Voices of hard-to-reach island communities, 2025).</li>
+            </ul>
+            <p>The existing system involves manual assessment by LDCC, email warnings, and CDMG dissemination, but issues include:</p>
+            <ol>
+                <li><i class="fas fa-robot"></i> Lack of automation, leading to delays.</li>
+                <li><i class="fas fa-cloud-shower-heavy"></i> Diverse hazards (e.g., floods, bushfires) not fully accounted for.</li>
+                <li><i class="fas fa-wifi"></i> Internet inaccessibility for some residents.</li>
+                <li><i class="fas fa-user-times"></i> Human error and slow response times.</li>
+            </ol>
+            <p>Without improvement, these gaps could result in loss of life, property, and cultural heritage, as seen in past inundations (Traditional community-based knowledge, 2025).</p>
+            <p>"How might we design an early warning system for Saibai Island that is automated, culturally appropriate, and able to keep residents safe during a diverse range of disasters?"</p>
+            <img src="images/image3.png" alt="Flooding on Saibai Island" class="img-fluid">
+            <p>(Word count: 400)</p>
+        </div>
+    </section>
+
+    <section id="scope" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-project-diagram"></i> Project Scope</h2>
+            <p>The project focuses on developing an ICT-based early warning system (EWS) to address disaster preparedness for Saibai Island's residents. User needs: Timely alerts to prepare for hazards, clear procedures, minimal human error, and independent component functionality.</p>
+            <p>Key objectives:</p>
+            <ul>
+                <li><i class="fas fa-info"></i> Provide advance information for preparation.</li>
+                <li><i class="fas fa-bell"></i> Ensure awareness of response protocols.</li>
+                <li><i class="fas fa-cogs"></i> Automate processes to reduce errors.</li>
+                <li><i class="fas fa-puzzle-piece"></i> Design modular components for resilience.</li>
+            </ul>
+            <p>Inclusions: App development, radio integration, community training.</p>
+            <p>Exclusions: Physical infrastructure like seawalls; focuses solely on ICT alerts.</p>
+            <p>This aligns with TSIRC's adaptation plans and EWB's design brief for sustainable, community-centered solutions (Engineers Without Borders, 2025b).</p>
+            <img src="images/image4.png" alt="Project Scope Diagram" class="img-fluid">
+            <p>(Word count: 250)</p>
+        </div>
+    </section>
+
+    <section id="requirements" class="py-5 bg-light" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-list-ul"></i> Design Requirements</h2>
+            <p>Based on client and community needs, the following criteria were established:</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Criterion</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Redundancy</td>
+                        <td>Multiple alert layers (e.g., app, radio, sirens) to ensure functionality if one fails.</td>
+                    </tr>
+                    <tr>
+                        <td>Ample Time</td>
+                        <td>Provide sufficient warning (e.g., hours ahead) for evacuation or preparation.</td>
+                    </tr>
+                    <tr>
+                        <td>Sustainability & Cultural Appropriateness</td>
+                        <td>Low-resource use; incorporate local languages, trusted voices, and respect traditions (e.g., no disruption to cultural sites).</td>
+                    </tr>
+                    <tr>
+                        <td>Reachability</td>
+                        <td>Cover all 340 residents, regardless of location or tech access.</td>
+                    </tr>
+                    <tr>
+                        <td>Coherence</td>
+                        <td>Clear, actionable warnings in simple language.</td>
+                    </tr>
+                    <tr>
+                        <td>Reliability & Accuracy</td>
+                        <td>Function in emergencies; minimize false alerts through precise monitoring.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>These link to TSIRC priorities for water security, cultural preservation, and resilience (Torres Strait Regional Adaptation Plan, n.d.).</p>
+            <img src="images/image5.png" alt="Design Criteria Infographic" class="img-fluid">
+            <p>(Word count: 200)</p>
+        </div>
+    </section>
+
+    <section id="options" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-balance-scale"></i> Design Options and Evaluation</h2>
+            <p>Options considered:</p>
+            <ol>
+                <li><strong>Alarm/Siren System</strong>: Loud, immediate alerts but lacks detail and pre-warning.</li>
+                <li><strong>Satellite System</strong>: Reliable in remote areas but high cost and complex.</li>
+                <li><strong>Mobile Alert System</strong>: App-based, customizable but internet-dependent.</li>
+                <li><strong>News System</strong>: Broadcast-style but limited automation.</li>
+            </ol>
+            <p>Evaluation against criteria (scored 1-5):</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Redundancy</th>
+                        <th>Ample Time</th>
+                        <th>Sustainability</th>
+                        <th>Reachability</th>
+                        <th>Coherence</th>
+                        <th>Reliability</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Siren</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Satellite</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>5</td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>Mobile</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>5</td>
+                        <td>4</td>
+                        <td>24</td>
+                    </tr>
+                    <tr>
+                        <td>News (Hybrid)</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>30</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Drawbacks of alternatives: News systems risk delays without backups; sirens lack nuance.</p>
+            <p>Chosen: Hybrid News System for best fit.</p>
+            <img src="images/image6.jpg" alt="Evaluation Chart" class="img-fluid">
+            <p>(Word count: 300)</p>
+        </div>
+    </section>
+
+    <section id="solution" class="py-5 bg-light" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-lightbulb"></i> Chosen Design Solution</h2>
+            <p>The final solution is a <strong>Community News System</strong>: A hybrid mobile app with radio wave backup.</p>
+            <ul>
+                <li><i class="fas fa-mobile-alt"></i> <strong>App Features</strong>: Real-time alerts, evacuation maps, offline cached plans, customizable settings (e.g., language: English, Kalaw Lagaw Ya).</li>
+                <li><i class="fas fa-broadcast-tower"></i> <strong>Radio Integration</strong>: VHF/FM broadcasts for offline alerts via IoT gateway.</li>
+                <li><i class="fas fa-robot"></i> <strong>Automation</strong>: Sensors detect hazards; alerts disseminated automatically.</li>
+            </ul>
+            <p>Justification: Meets all criteria, addresses current gaps (e.g., no redundancy), and is feasible with low costs. It outperforms alternatives by combining digital and analog channels, ensuring 100% reach.</p>
+            <p>This aligns with Sendai Framework elements and community feedback for culturally sensitive tech (Brady, 2025).</p>
+            <img src="images/image7.png" alt="System Overview" class="img-fluid">
+            <p>(Word count: 350)</p>
+        </div>
+    </section>
+
+    <section id="prototype" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-drafting-compass"></i> Prototype</h2>
+            <p>Wireframes (Admin POV):</p>
+            <ul>
+                <li><i class="fas fa-chart-line"></i> Dashboard for hazard monitoring.</li>
+                <li><i class="fas fa-edit"></i> Alert composition tool.</li>
+            </ul>
+            <p>Resident POV:</p>
+            <ul>
+                <li><i class="fas fa-home"></i> Home screen with alerts.</li>
+                <li><i class="fas fa-cog"></i> Settings for preferences.</li>
+            </ul>
+            <p>Settings:</p>
+            <ul>
+                <li><i class="fas fa-language"></i> Language, notification types.</li>
+            </ul>
+            <p>Prototyped using Figma; tested for usability.</p>
+            <!-- Carousel for images -->
+            <div id="prototypeCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/image8.png" class="d-block w-100" alt="Wireframe Admin">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/image9.png" class="d-block w-100" alt="Wireframe Resident">
+                    </div>
+                    <!-- Add more if needed -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#prototypeCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#prototypeCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <p>(Word count: 150)</p>
+        </div>
+    </section>
+
+    <section id="implementation" class="py-5 bg-light" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-calendar-alt"></i> Implementation Plan</h2>
+            <p>Phased timeline starting 2026:</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Activities</th>
+                        <th>Timeline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Research</td>
+                        <td>Consult locals, design app</td>
+                        <td>Jan-Mar 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Development</td>
+                        <td>Build prototype, test</td>
+                        <td>Apr-Jun 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Training</td>
+                        <td>Trial app, community workshops</td>
+                        <td>Jul-Sep 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Maintenance</td>
+                        <td>Feedback, full release</td>
+                        <td>Oct-Dec 2026+</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Annual reviews for updates.</p>
+            <img src="images/image10.png" alt="Timeline Gantt Chart" class="img-fluid">
+            <p>(Word count: 200)</p>
+        </div>
+    </section>
+
+    <section id="costs" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-dollar-sign"></i> Costs and Funding</h2>
+            <p>Estimated costs:</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Estimation (AUD)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Development & Design</td>
+                        <td>20,000 - 30,000</td>
+                    </tr>
+                    <tr>
+                        <td>Testing</td>
+                        <td>8,000 - 12,000</td>
+                    </tr>
+                    <tr>
+                        <td>Training</td>
+                        <td>6,000 - 10,000</td>
+                    </tr>
+                    <tr>
+                        <td>Ongoing (Hosting & Maintenance)</td>
+                        <td>7,000 - 10,000/year</td>
+                    </tr>
+                    <tr>
+                        <td>Radio Integration</td>
+                        <td>3,000 - 8,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Initial</strong></td>
+                        <td><strong>44,000 - 70,000</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Funding: EWB grants, TSIRC budget, NGOs like Stronger Communities Programme (Sport, 2025). Shift to community budgeting post-implementation.</p>
+            <img src="images/image11.png" alt="Cost Breakdown Pie Chart" class="img-fluid">
+            <p>(Word count: 150)</p>
+        </div>
+    </section>
+
+    <section id="specs" class="py-5 bg-light" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-cogs"></i> Technical Specifications</h2>
+            <ul>
+                <li><i class="fas fa-server"></i> <strong>Backend</strong>: Firebase (Google Cloud) for database, authentication, hosting, cloud messaging.</li>
+                <li><i class="fas fa-broadcast-tower"></i> <strong>Radio</strong>: IoT gateway for VHF/FM decoding.</li>
+                <li><i class="fas fa-cloud-download-alt"></i> <strong>Offline</strong>: Cached alerts, local storage.</li>
+                <li><i class="fas fa-tachometer-alt"></i> <strong>Performance</strong>: Supports 4,000 users; <2s alert speed.</li>
+                <li><i class="fas fa-shield-alt"></i> <strong>Security</strong>: HTTPS, data encryption.</li>
+                <li><i class="fas fa-universal-access"></i> <strong>Accessibility</strong>: High-contrast colors, sound alerts, multilingual.</li>
+            </ul>
+            <img src="images/image12.png" alt="Tech Stack Diagram" class="img-fluid">
+            <p>(Word count: 200)</p>
+        </div>
+    </section>
+
+    <section id="sustainability" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-leaf"></i> Sustainability and Long-Term Maintenance</h2>
+            <p><i class="fas fa-bolt"></i> <strong>Environmental</strong>: Low-power hardware suited to coastal climate.</p>
+            <p><i class="fas fa-users-cog"></i> <strong>Management</strong>: By TSIRC CDMG and local ICT officers; workshops for skills.</p>
+            <p><i class="fas fa-money-check-alt"></i> <strong>Financial</strong>: Grants to community funds.</p>
+            <p><i class="fas fa-chart-bar"></i> <strong>Monitoring</strong>: Audits, feedback surveys integrated into TSIRC reviews.</p>
+            <p>Promotes independence and minimal resource drain.</p>
+            <img src="images/image13.png" alt="Sustainability Icons" class="img-fluid">
+            <p>(Word count: 250)</p>
+        </div>
+    </section>
+
+    <section id="needs" class="py-5 bg-light" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-handshake"></i> How the Solution Meets TSIRC and Community Needs</h2>
+            <ul>
+                <li><i class="fas fa-shield-alt"></i> <strong>Community Safety</strong>: Early warnings protect lives and property.</li>
+                <li><i class="fas fa-sync-alt"></i> <strong>Reliability & Redundancy</strong>: Radio backups during outages.</li>
+                <li><i class="fas fa-globe"></i> <strong>Cultural Preservation</strong>: Local languages, trusted voices.</li>
+                <li><i class="fas fa-universal-access"></i> <strong>Accessibility</strong>: Inclusive for elders.</li>
+                <li><i class="fas fa-leaf"></i> <strong>Sustainability</strong>: Low-cost, eco-friendly.</li>
+            </ul>
+            <p>Addresses TSIRC priorities: Water security, cultural heritage, resilience (Torres Strait Regional Adaptation Plan, n.d.).</p>
+            <img src="images/image14.png" alt="Community Benefits Illustration" class="img-fluid">
+            <p>(Word count: 300)</p>
+        </div>
+    </section>
+
+    <section id="recommendations" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-lightbulb"></i> Recommendations</h2>
+            <ul>
+                <li><i class="fas fa-globe-asia"></i> Integrate with Pacific-wide EWS (Pacific project, 2025).</li>
+                <li><i class="fas fa-cloud"></i> Ongoing climate data collection via sensors.</li>
+                <li><i class="fas fa-users"></i> Community-led updates to incorporate traditional knowledge.</li>
+                <li><i class="fas fa-search-plus"></i> Evaluate post-2027 for scalability to other islands.</li>
+            </ul>
+            <img src="images/image15.png" alt="Recommendations Mind Map" class="img-fluid">
+            <p>(Word count: 150)</p>
+        </div>
+    </section>
+
+    <section id="references" class="py-5 bg-light" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-book"></i> References</h2>
+            <ul>
+                <li>Babacan, H., McHugh, J., Marshall, A., Gopalkrishnan, N., & Dale, A. (2021). <em>TCICA Region Telecommunications and Digital Connectivity Final Report</em>. Torres Strait Indigenous Council Alliance Inc. https://tcica.com.au/wp-content/uploads/2021/08/tcica-digital-connectivity-strategy.pdf</li>
+                <li>Brady, A. (2025, April 11). Infrastructure of existing warning systems in Saibai [Comment on 'Early Warning Infrastructure']. https://ewbchallenge.org/forums/topic/existing-warning-systems-infrastructure/</li>
+                <li>Engineers Without Borders. (2025a). <em>EWB Challenge | Design Area 6 – ICT</em>. https://ewbchallenge.org/challenge/saibai-island-tsirc/design-area-6-ict/</li>
+                <li>Engineers Without Borders. (2025b). <em>Navigating the tides: Saibai Island’s battle against climate change</em>. https://ewb.org.au/blog/2024/06/17/navigating-the-tides-saibai-islands-battle-against-climate-change/</li>
+                <li>Green, D., et al. (2009). <em>An assessment of climate change impacts and adaptation for the Torres Strait Islands</em>. https://research.fit.edu/media/site-specific/researchfitedu/coast-climate-adaptation-library/australia-amp-new-zealand/queensland-gbr-n-territory/Green-et-al.-2010.-Torres-Strait-Islands-CC-Impacts--Adaptation.pdf</li>
+                <li>Indigenous.gov.au. (2021). <em>Saibai Island</em>. https://www.indigenous.gov.au/community/saibai-island</li>
+                <li>Pacific project enhances early warning systems for island resilience. (2025, July 24). World Meteorological Organization. https://wmo.int/media/news/pacific-project-enhances-early-warning-systems-island-resilience</li>
+                <li>Sport, C. (2025, September 10). <em>Stronger Communities Programme</em>. Department of Infrastructure, Transport, Regional Development, Communications, Sport and the Arts. https://www.infrastructure.gov.au/territories-regions/regional-australia/regional-and-community-programs/stronger-communities-programme</li>
+                <li>Tearfund Australia. (n.d.). <em>“I Cried for My Home…”</em>. https://www.tearfund.org.au/stories/i-cried-for-my-home</li>
+                <li>Torres Strait Island Regional Council. (2025). <em>Torres Strait Local Disaster Management Plan</em>. https://tsirc.qld.gov.au/wp-content/uploads/2024/11/Torres-Strait-LDMP-Ver-5.1-Media-Release.pdf</li>
+                <li>TSRA. (2018). <em>Torres Strait Climate Change and Health – First Pass Risk Assessment</em>. https://www.tsra.gov.au/wp-content/uploads/2025/03/Torres-Strait-Climate-Change-and-Health-First-Pass-Risk-Assessment-2018.pdf</li>
+                <li>United Nations Office for Disaster Risk Reduction. (2015). <em>Sendai Framework for Disaster Risk Reduction 2015-2030</em>. https://www.undrr.org/publication/sendai-framework-disaster-risk-reduction-2015-2030</li>
+                <li>Wellauer, K., Ruddick, B., Dixon, C., & Franklin, D. (2025, March 15). <em>Saibai Island waits for a climate change lifeline as rising Torres Strait closes in</em>. ABC News. https://www.abc.net.au/news/2024-12-15/rising-ocean-threat-to-island-culture-torres-strait-australia/104613496</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="declaration" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2><i class="fas fa-users"></i> Teamwork Declaration</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Contribution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ayyash</td>
+                        <td>Background, slides 7-20.</td>
+                    </tr>
+                    <tr>
+                        <td>Terry</td>
+                        <td>Project Scope and How the system solves the problem, slides 21-24, 38.</td>
+                    </tr>
+                    <tr>
+                        <td>Harry</td>
+                        <td>Acknowledgement of country, EWB design area and project opportunity (slides 2-6), prototype (slides 31-33).</td>
+                    </tr>
+                    <tr>
+                        <td>William</td>
+                        <td>Summary, TSIRC and community needs, slides 40-42.</td>
+                    </tr>
+                    <tr>
+                        <td>Maleesha</td>
+                        <td>Final Solution, Slides 26-28, 39.</td>
+                    </tr>
+                    <tr>
+                        <td>Mannix</td>
+                        <td>Background, implementation and costs slides 20-21, 34-37.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>No non-contributors.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Omnipotent Tech Solutions. All rights reserved.</p>
+        <a href="#" class="btn btn-primary"><i class="fas fa-arrow-up"></i> Back to Top</a>
+    </footer>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        // Smooth scroll for nav links
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

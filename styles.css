@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.hero {
+    background-color: #007bff; /* Blue theme */
+}
+
+section {
+    border-bottom: 1px solid #ddd;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+/* Add more styles as needed, e.g., for images */
+img {
+    max-width: 100%;
+    height: auto;
+}
